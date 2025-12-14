@@ -21,8 +21,19 @@ pipeline{
                 sh "docker push yogesh010/vote:v${BUILD_NUMBER}"
             }
         }
+        stage("Test"){
+            steps{
+                sh "echo linux test"
+                sh "sleep 180"
+            }
+        }
+        stage("Test2"){
+            steps{
+                sh "echo window test"
+                sh "sleep 180"
+            }
+        }
         stage("deploy"){
-            agent{label 'worker'}
             steps{
                 sh "echo starting deployment"
             }
